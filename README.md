@@ -42,6 +42,21 @@ export PYTHONPATH=$PYTHONPATH:.
 pytest tests/
 ```
 
+## TradingView Integration
+
+Connecting with TradingView Desktop directly for live data capture is best achieved via two primary methods:
+
+### 1. Programmatic Access (tvDatafeed)
+You can use the `tvDatafeed` library to scrape data directly from TradingView's servers.
+- **Pros**: Access to all symbols and intervals available on TV.
+- **Setup**: `pip install --upgrade --no-cache-dir git+https://github.com/StreamAlpha/tvdatafeed.git`
+
+### 2. Live Alerts via Webhooks (Recommended for Execution)
+To capture real-time signals or price data from a TradingView Desktop chart:
+- **Alerts**: Create an alert on TradingView using your strategy/indicator.
+- **Webhook**: Set the Alert Action to "Webhook URL" and point it to a local/cloud server (e.g., using Flask or FastAPI).
+- **Processing**: The system can listen for these POST requests to trigger scalping trades instantaneously.
+
 ## System Principles (AGENTS.md)
 The system strictly follows these rules:
 1. **Never override the computer.**
