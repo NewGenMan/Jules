@@ -6,8 +6,8 @@ def main():
     # Set PYTHONPATH to current directory
     os.environ["PYTHONPATH"] = os.getcwd()
 
-    # Run streamlit
-    cmd = ["streamlit", "run", "src/dashboard.py"]
+    # Run streamlit using sys.executable to ensure it's found on Windows
+    cmd = [sys.executable, "-m", "streamlit", "run", "src/dashboard.py"]
     try:
         subprocess.run(cmd, check=True)
     except KeyboardInterrupt:
