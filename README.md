@@ -56,7 +56,22 @@ python run_dashboard.py
 python run_dashboard.py
 ```
 
-### 3. Run Unit Tests
+### 3. Run Live Trading Simulation (Paper Trading)
+To see how the system generates real-time signals and interacts with a broker:
+
+**On Linux/macOS:**
+```bash
+export PYTHONPATH=$PYTHONPATH:.
+python src/live_trader.py
+```
+
+**On Windows (PowerShell):**
+```powershell
+$env:PYTHONPATH = "."
+python src/live_trader.py
+```
+
+### 4. Run Unit Tests
 To verify the core mathematical logic:
 
 **On Linux/macOS:**
@@ -70,7 +85,20 @@ $env:PYTHONPATH = "."
 pytest
 ```
 
-## TradingView Integration
+## Live Trading Guide
+
+To move from backtesting to live trading, follow these steps:
+
+1. **Broker API**: Implement a new class in `src/broker.py` that inherits from the `Broker` base class. Use an API like Alpaca, Interactive Brokers, or TD Ameritrade.
+2. **Real-time Data**: Ensure your `DataLoader` can fetch the most recent price bars (already supported via `yfinance` or TradingView).
+3. **Execution Loop**: Use `src/live_trader.py` as a template. It contains the logic for:
+   - Calculating historical hedge ratios.
+   - Fetching latest prices.
+   - Calculating real-time Z-scores.
+   - Placing buy/sell orders based on thresholds.
+
+**Warning**: Always start with **Paper Trading** (MockBroker) before committing real capital.
+
 
 Connecting with TradingView Desktop directly for live data capture is best achieved via two primary methods:
 
