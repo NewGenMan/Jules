@@ -5,3 +5,5 @@ yfinance
 matplotlib
 scipy
 pytest
+streamlit
+plotly

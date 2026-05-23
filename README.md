@@ -43,7 +43,20 @@ This will:
 - Run a backtest on the best pair found.
 - Save the results to `backtest_results.csv`.
 
-### 2. Run Unit Tests
+### 2. Run the Dashboard (UI)
+To visualize the strategy and monitor results in a web interface:
+
+**On Linux/macOS:**
+```bash
+python run_dashboard.py
+```
+
+**On Windows (PowerShell):**
+```powershell
+python run_dashboard.py
+```
+
+### 3. Run Unit Tests
 To verify the core mathematical logic:
 
 **On Linux/macOS:**
