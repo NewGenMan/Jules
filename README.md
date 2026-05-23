@@ -25,10 +25,18 @@ A systematic US stock market scalping system based on Jim Simons' statistical ar
 
 ### 1. Run the Backtester
 To find cointegrated pairs and run a backtest on recent 5-minute data:
+
+**On Linux/macOS:**
 ```bash
-export PYTHONPATH=$PYTHONPATH:.
-python src/main.py
+python run_system.py
 ```
+
+**On Windows (PowerShell):**
+```powershell
+$env:PYTHONPATH = "."
+python run_system.py
+```
+
 This will:
 - Download recent intraday data for a set of tickers.
 - Identify pairs that are statistically cointegrated.
@@ -37,9 +45,16 @@ This will:
 
 ### 2. Run Unit Tests
 To verify the core mathematical logic:
+
+**On Linux/macOS:**
 ```bash
-export PYTHONPATH=$PYTHONPATH:.
-pytest tests/
+pytest
+```
+
+**On Windows (PowerShell):**
+```powershell
+$env:PYTHONPATH = "."
+pytest
 ```
 
 ## TradingView Integration
